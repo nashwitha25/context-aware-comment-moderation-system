@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Context Aware Comment Moderation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div class="landing-container" id="landing">
+
+    <h1 class="app-title">Context Aware Comment Moderation System</h1>
+    <p class="app-subtitle">
+        AI-powered detection and moderation of toxic comments
+    </p>
+
+    <!-- LOGIN -->
+    <div class="auth-card">
+        <h3>Login</h3>
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button type="button" onclick="login()">Login</button>
+    </div>
+
+    <!-- REGISTER -->
+    <div class="auth-card">
+        <p class="new-user-text">New user❓</p>
+        <h3>Register</h3>
+        <input type="text" id="registerUsername" placeholder="Username">
+        <input type="email" id="registerEmail" placeholder="Email">
+        <input type="password" id="registerPassword" placeholder="Password">
+        <button type="button" onclick="register()">Register</button>
+    </div>
+
+</div>
+
+<!-- NAVBAR -->
+<div id="navbar" class="navbar hidden">
+    <div class="nav-left">
+        <span class="profile-icon">👤</span>
+        <span id="navUsername"></span>
+    </div>
+
+    <div class="nav-right">
+        <span onclick="showSection('feed')">Feed</span>
+        <span onclick="showSection('profile')">My Profile</span>
+        <span onclick="showSection('notifications')">Notifications</span>
+        <span onclick="logout()">Logout</span>
+    </div>
+</div>
+
+<!-- PROFILE -->
+<div id="profile" class="section hidden">
+    <h2>My Profile</h2>
+
+<h3>Create Post</h3>
+<textarea id="postContent"></textarea>
+<button onclick="createPost()">Post</button>
+
+<hr>
+<h3>My Posts</h3>
+<div id="myPosts"></div>
+
+<h3>Comments to Review</h3>
+<div id="moderationContainer"></div>
+
+
+</div>
+
+<!-- FEED -->
+<div id="feed" class="section hidden">
+    <h2>Feed</h2>
+    <div id="feedContainer"></div>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div id="notifications" class="section hidden">
+    <h2>Notifications</h2>
+    <div id="notificationContainer"></div>
+</div>
+
+<!-- REGISTER SUCCESS POPUP -->
+<div id="registerPopup" class="popup-overlay hidden">
+    <div class="popup-box">
+        <h3>Registration Successful ✅</h3>
+        <p>Please login to continue.</p>
+        <button type="button" onclick="closeRegisterPopup()">OK</button>
+    </div>
+</div>
+<!-- AI RESULT POPUP -->
+<div id="aiPopup" class="popup-overlay hidden">
+    <div class="popup-box" id="aiPopupBox">
+        <h3 id="aiTitle"></h3>
+        <p id="aiCategory"></p>
+        <p id="aiConfidence"></p>
+        <p id="aiMessage"></p>
+        <button onclick="closeAIPopup()">OK</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
